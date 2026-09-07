@@ -1,5 +1,11 @@
-### Get all contacts
+### Get All Contacts
 GET http://localhost:8080/contacts
 
 ### Get contact by ID
 GET http://localhost:8080/contacts/6a9ef77aaf6c407c594f2093
+
+### Live Deployed API - Get all contacts
+GET https://your-render-service-name.onrender.com/contacts
+
+### Live Deployed API - Get single contact
+GET https://your-render-service-name.onrender.com/contacts/6a9ef77aaf6c407c594f2093
