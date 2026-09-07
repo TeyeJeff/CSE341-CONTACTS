@@ -5,7 +5,7 @@ GET http://localhost:8080/contacts
 GET http://localhost:8080/contacts/6a9ef77aaf6c407c594f2093
 
 ### Live Deployed API - Get all contacts
-GET https://your-render-service-name.onrender.com/contacts
+GET https://cse341-contacts-b1gb.onrender.com/contacts
 
 ### Live Deployed API - Get single contact
-GET https://your-render-service-name.onrender.com/contacts/6a9ef77aaf6c407c594f2093
+GET https://cse341-contacts-b1gb.onrender.com/contacts/6a9ef77aaf6c407c594f2093
