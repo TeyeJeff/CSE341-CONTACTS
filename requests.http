@@ -1,11 +1,32 @@
-### Get All Contacts
+### Get all contacts
 GET http://localhost:8080/contacts
 
 ### Get contact by ID
 GET http://localhost:8080/contacts/6a9ef77aaf6c407c594f2093
 
-### Live Deployed API - Get all contacts
-GET https://cse341-contacts-b1gb.onrender.com/contacts
+### Create contact
+POST http://localhost:8080/contacts HTTP/1.1
+Content-Type: application/json
 
-### Live Deployed API - Get single contact
-GET https://cse341-contacts-b1gb.onrender.com/contacts/6a9ef77aaf6c407c594f2093
+{
+  "firstName": "Ewuramaa",
+  "lastName": "Taylor",
+  "email": "ewuramataylor@test.com",
+  "favoriteColor": "Blue",
+  "birthday": "1995-05-15"
+}
+
+### Update contact
+PUT http://localhost:8080/contacts/650c1f2e9b1d2e3f4a5b6c7d HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Ewurama",
+  "lastName": "Taylor",
+  "email": "ewuramataylor@gmail.com",
+  "favoriteColor": "Green",
+  "birthday": "1995-05-15"
+}
+
+### Delete contact
+DELETE http://localhost:8080/contacts/650c1f2e9b1d2e3f4a5b6c7d HTTP/1.1
