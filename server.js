@@ -6,22 +6,27 @@ const swaggerDocument = require('./swagger.json');
 
 const port = process.env.PORT || 8080;
 
-app
-  .use(express.json())
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-    );
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    if (req.method === 'OPTIONS') {
-      return res.sendStatus(200);
-    }
-    next();
-  })
-  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-  .use('/', require('./routes'));
+app.use(express.json());
+
+// Enable CORS for all routes including Swagger
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+// Serve Swagger Docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Route handlers
+app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {
   if (err) {
