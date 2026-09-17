@@ -15,14 +15,12 @@ app
       'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
     );
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
+    }
     next();
   })
-  .use('/api-docs', (req, res, next) => {
-    swaggerDocument.host = req.get('host');
-    swaggerDocument.schemes = [req.protocol === 'https' || req.get('x-forwarded-proto') === 'https' ? 'https' : 'http'];
-    req.swaggerDoc = swaggerDocument;
-    next();
-  }, swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   .use('/', require('./routes'));
 
 mongodb.initDb((err) => {
