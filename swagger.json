@@ -2,14 +2,14 @@
   "swagger": "2.0",
   "info": {
     "title": "Contacts API",
-    "description": "Contacts REST API Documentation",
+    "description": "Contacts REST API for W02 Project",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse341-contacts-b1gb.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "paths": {
     "/": {
