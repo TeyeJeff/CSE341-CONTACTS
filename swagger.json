@@ -8,21 +8,10 @@
   "host": "cse341-contacts-b1gb.onrender.com",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "https"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/contacts/": {
+    "/contacts": {
       "get": {
         "description": "",
         "produces": [

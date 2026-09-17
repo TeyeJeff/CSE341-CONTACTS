@@ -6,7 +6,7 @@ const doc = {
     description: 'Contacts REST API for W02 Project',
   },
   host: 'cse341-contacts-b1gb.onrender.com',
-  schemes: ['https', 'http'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
